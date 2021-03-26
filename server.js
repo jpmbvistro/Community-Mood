@@ -1,21 +1,23 @@
+
 const express = require('express')
 const app = express()
+require('dotenv').config()
 const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient
 
-var configDB = require('./config/database.js')
+// var configDB = require('./config/database.js')
 var db, collection;
 
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
 //Setup server and connect database
-app.listen(PORT || process.env.PORT , () => {
-    MongoClient.connect(configDB.url || process.env.db_url, { useNewUrlParser: true, useUnifiedTopology: true }, (error, client) => {
+app.listen(PORT, () => {
+    MongoClient.connect(configDB.url || process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true }, (error, client) => {
         if(error) {
             throw error;
         }
-        db = client.db(configDB.dbName || process.env.db_name);
-        console.log("Connected to `" + configDB.dbName || process.env.db.dbName + "`!");
+        db = client.db(configDB.dbName || process.env.DB_NAME);
+        console.log("Connected to `" + process.env.DB_Name + "`!");
     });
 });
 //Generate html on fly via EJS || templtate language to get data and generate it to html
