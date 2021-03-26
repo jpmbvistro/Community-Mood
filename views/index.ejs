@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vibe Check</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <section class='main flex-container flex-xy-center flex-column'>
+    <h1>Vibe Check</h1>
+    <section class='list-container'>
+      <ul class="your-vibe flex-container flex-xy-center">
+      <% for(var i=10; i>0; i--) {%>
+        <li>
+          <button id='<%= i %>' class="primary-button vibe-select" type="button" name="button"><%= i %></button>
+        </li>
+      <% } %>
+      </ul>
+    </section>
+    <section class='display flex-container flex-column'>
+
+        <div class="vibeDisplay flex-container flex-column flex-xy-center">
+          <div class='response-container flex-container flex-xy-center'><h2 class='response'></h2></div>
+          <img class='tree hide' src="" alt="">
+          <p class='response-detail'></p>
+        </div>
+        <div class="menu flex-container flex-xy-center">
+          <button class='menu1 menu-button info-button' type="button" name="button">
+            <img class='icon' src="img/info.png" alt="about icon">
+          </button>
+          <button class='menu2 menu-button' type="button" name="button">
+            <span class='notice'>coming soon</span>
+            <img class='icon' src="img/graph.png" alt="stats icon">
+          </button>
+          <a href="https://twitter.com/intent/tweet?text=Quick+check-in.+How%27s+everyone+feeling%3F&url=https%3A%2F%2Fwww.jpmbvistro.com&via=jpmbvistro" target="_blank" rel"noopener noreferrer" class='flex-container flex-xy-center menu3 menu-button' type="button" name="button">
+            <img class='icon' src="img/reply.png" alt="share icon">
+          </a>
+        </div>
+    </section>
+  </section>
+  <aside>
+    <h4 id="projectTitle">Vibe Check</h4>
+    <h5>What's Happening?</h5>
+    <p>Checking in on everyone and how they're doing.</p>
+
+    <h6>Made By: Juan Vistro</h5>
+    <p>A software engineer based in Boston, I combine archipelagic design and my diasporic experiences to compose engaging, complex, and intuitive applications.</p>
+    <div class="external-links"><a id="portfolio-link" class="" href="http://jpmbvistro.netlify.app/" target='_blank'> More of my work</a></div>
+    <div id="profile-container" class="profile-container flex-container flex-xy-center"><img src="img/profile-picture.jpg" alt="Profile Picture"></div>
+    <div class="collab-button"><a id="portfolio-link" class=" portfolio-link" target="_blank" href="https://www.jpmbvistro.com/" target='_blank'>Work with me</a>
+    <a id="hide-aside" class="hide-aside"></a><div>
+  </aside>
+
+  <script src="main.js"></script>
+
+</body>
+</html>
