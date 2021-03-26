@@ -5,18 +5,18 @@ require('dotenv').config()
 const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient
 
-// var configDB = require('./config/database.js')
+
 var db, collection;
 
 const PORT = process.env.PORT || 3000
 
 //Setup server and connect database
 app.listen(PORT, () => {
-    MongoClient.connect(configDB.url || process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true }, (error, client) => {
+    MongoClient.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true }, (error, client) => {
         if(error) {
             throw error;
         }
-        db = client.db(configDB.dbName || process.env.DB_NAME);
+        db = client.db( process.env.DB_NAME);
         console.log("Connected to `" + process.env.DB_Name + "`!");
     });
 });
