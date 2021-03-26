@@ -6,15 +6,16 @@ const MongoClient = require('mongodb').MongoClient
 var configDB = require('./config/database.js')
 var db, collection;
 
+const PORT = 3000
 
 //Setup server and connect database
-app.listen(3000, () => {
-    MongoClient.connect(configDB.url, { useNewUrlParser: true, useUnifiedTopology: true }, (error, client) => {
+app.listen(PORT || process.env.PORT , () => {
+    MongoClient.connect(configDB.url || process.env.db_url, { useNewUrlParser: true, useUnifiedTopology: true }, (error, client) => {
         if(error) {
             throw error;
         }
-        db = client.db(configDB.dbName);
-        console.log("Connected to `" + configDB.dbName + "`!");
+        db = client.db(configDB.dbName || process.env.db_name);
+        console.log("Connected to `" + configDB.dbName || process.env.db.dbName + "`!");
     });
 });
 //Generate html on fly via EJS || templtate language to get data and generate it to html
